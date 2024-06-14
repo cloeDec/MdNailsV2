@@ -15,11 +15,18 @@
   --fourthColor: #9bd6b8;
   --fifthColor: #b8e4d7;
   --sixthColor: #1c1b1f;
+  --primaryFont: "Coming Soon", cursive;
+  --secondaryFont: "Dancing Script", cursive;
+}
+
+.intro .logo .nails {
+  font-family: var(--primaryFont);
+  font-size: 40px;
 }
 
 body {
   background-color: var(--primaryColor);
-  font-family: "Dancing Script", cursive;
+  font-family: var(--primaryFont);
 }
 
 /* NavBar */
@@ -33,8 +40,8 @@ body {
   width: 100vw;
   height: 100px;
   box-sizing: border-box;
-  font-family: "Coming Soon", cursive;
-  font-size: 25px;
+  font-family: var(--primaryFont);
+  font-size: 21px;
   background-color: var(--primaryColor);
   box-shadow: 0px 2px 10px 2px rgba(75, 75, 75, 0.2);
 }
@@ -76,10 +83,14 @@ body {
   transform: translate(-50%, -50%);
   width: 110px;
   height: 90px;
-  background-image: url("assets/fond.svg");
+  background-image: url("assets/fond-navbar.png");
   background-size: cover;
   background-position: center;
   z-index: -1;
+}
+
+.navbar .nav-links .social-link {
+  padding: 15px 0;
 }
 
 .navbar .menu_burger {
@@ -96,7 +107,7 @@ body {
     width: 100%;
     height: 80px;
     background-color: var(--primaryColor);
-    font-size: 10px;
+    font-size: 20px;
   }
 
   .navbar .menu_burger {
@@ -134,40 +145,41 @@ body {
   }
 
   .navbar .nav-links ul li a {
-    padding: 10px 20px; 
+    padding: 10px 20px;
     font-size: 16px;
   }
 
   .navbar .logo {
-    width: 80px; 
+    width: 80px;
     height: 80px;
   }
 }
 
 /* HomePage */
 
-.intro {
+/* .intro {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px;
+  padding: 2vw 5vw;
   background-color: var(--primaryColor);
 }
 
-.intro .logo h1 {
+.intro .int h1 {
+  font-family: var(--primaryFont);
+  font-size: 8vw;
+}
+
+.intro .int .nails {
   font-family: var(--secondaryFont);
-  font-size: 80px;
+  font-size: 8vw;
+  transform: translate(12vw, -8vw);
 }
 
-.intro .logo .nails {
+.intro .int p {
   font-family: var(--primaryFont);
-  font-size: 40px;
-}
-
-.intro.logo p {
-  font-family: var(--primaryFont);
-  font-size: 20px;
-  margin: 20px 0;
+  font-size: 2vw;
+  width: 80%;
 }
 
 .intro .btn {
@@ -182,7 +194,7 @@ body {
 }
 
 .intro .illustration img {
-  width: 150px;
+  width: 35vw;
 }
 
 .presentation {
@@ -214,6 +226,93 @@ body {
 
 .description p {
   font-family: var(--primaryFont);
+  font-size: 24px;
+  margin-bottom: 10px;
+} */
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vw 5vw;
+  background-color: var(--primaryColor);
+}
+
+.intro .int {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.intro .int h1 {
+  font-family: var(--primaryFont);
+  font-size: 8vw;
+  margin: 0;
+}
+
+.intro .int .nails {
+  font-family: var(--secondaryFont);
+  font-size: 8vw;
+  transform: translate(12vw, 0);
+  margin-top: -8vw;
+}
+
+.intro .int p {
+  font-family: var(--primaryFont);
+  font-size: 2vw;
+  width: 80%;
+  margin-top: 1vw;
+}
+
+.intro .btn {
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+  border: none;
+  padding: 1.5vw 2vw;
+  cursor: pointer;
+  border-radius: 50px;
+  font-family: var(--primaryFont);
+  font-size: 1.6vw;
+  margin-top: 2vw;
+}
+
+.intro .illustration img {
+  width: 35vw;
+}
+
+.presentation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--secondaryColor);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pres {
+  background-color: var(--fifthColor);
+  padding: 2vw 5vw 2vw 5vw;
+  border-radius: 0% 60% 0% 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pres img {
+  border-radius: 50%;
+  width: 25vw;
+  height: 25vw;
+}
+
+.description {
+  color: var(--primaryColor);
+  padding: 0 8vw;
+  text-align: center;
+}
+
+.description p {
+  font-family: var(--secondaryFont);
   font-size: 24px;
   margin-bottom: 10px;
 }
