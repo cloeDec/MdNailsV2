@@ -10,10 +10,10 @@
 /* Variables */
 :root {
   --primaryColor: #ffffff;
-  --secondaryColor: #00633c;
-  --tertiaryColor: #4ba87e;
-  --fourthColor: #9bd6b8;
-  --fifthColor: #b8e4d7;
+  --secondaryColor: #6E8C78;
+  --tertiaryColor: #ACC3AC;
+  --fourthColor: #BCCBB5;
+  --fifthColor: #AFDCC6;
   --sixthColor: #1c1b1f;
   --primaryFont: "Coming Soon", cursive;
   --secondaryFont: "Dancing Script", cursive;
@@ -181,7 +181,7 @@ body {
   font-family: var(--primaryFont);
 }
 
-.footer .container {
+.footer .container-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -223,7 +223,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  .footer .container {
+  .footer .container-footer {
     flex-direction: column;
     align-items: center;
   }
@@ -314,6 +314,64 @@ body {
   }
 }
 
+/* Test pres */
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+      0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  height: 10%;
+  border: none;
+  outline: none;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 1em;
+  display: flex;
+}
+
+button .arrow {
+  border: solid #fff;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 10px;
+  transition: transform 0.3s ease-out;
+  outline: none;
+}
+
+.container img {
+  width: 100%;
+  z-index: -2;
+  display: none; 
+}
+
+.container img.active {
+  display: block; /* Display the active image */
+}
+
+
+#right-btn {
+  margin: auto 0 auto -4em;
+}
+
+#right-btn .arrow {
+  transform: rotate(-45deg);
+}
+
+#left-btn {
+  z-index: 0;
+  margin: auto -4em auto 0;
+}
+
+#left-btn .arrow {
+  transform: rotate(135deg);
+}
+
+
 /* Présentation */
 .presentation {
   display: flex;
@@ -334,7 +392,8 @@ body {
   align-items: center;
 }
 
-.pres img {
+.pres #photo-margot{
+  z-index: 1;
   border-radius: 50%;
   width: 25vw;
   height: 25vw;
@@ -595,5 +654,52 @@ iframe {
     font-family: var(--primaryFont);
     font-size: 1.6vw;
     margin-top: 2vw;
+  }
+}
+
+
+
+
+
+
+
+/* Page Nuanciers  */
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
   }
 }
