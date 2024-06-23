@@ -73,30 +73,41 @@
 
       <div class="container">
         <button id="left-btn"><i class="arrow"></i></button>
-        <div class="presentation">
-          <div class="pres">
-            <img src="assets/Photo_margot.png" id="photo-margot" alt="Margot" />
-          </div>
-          <div class="description">
-            <p>Je m'appelle Margot, j'ai 24 ans.</p>
-            <p>
-              Après 5 ans de pratique sur moi même ou sur des proches, j'ai
-              décidé de me lancer.
-            </p>
-            <p>
-              Je suis prothésiste ongulaire à Berles-Monchel. Je réalise
-              différentes prestations.
-            </p>
-            <p>
-              N'hésitez pas à me contacter pour plus d'informations ou pour
-              prendre rendez-vous.
-            </p>
+        <div class="carousel-item active">
+          <div class="presentation">
+            <div class="pres">
+              <img
+                src="assets/Photo_margot.png"
+                id="photo-margot"
+                alt="Margot"
+              />
+            </div>
+            <div class="description">
+              <p>Je m'appelle Margot, j'ai 24 ans.</p>
+              <p>
+                Après 5 ans de pratique sur moi même ou sur des proches, j'ai
+                décidé de me lancer.
+              </p>
+              <p>
+                Je suis prothésiste ongulaire à Berles-Monchel. Je réalise
+                différentes prestations.
+              </p>
+              <p>
+                N'hésitez pas à me contacter pour plus d'informations ou pour
+                prendre rendez-vous.
+              </p>
+            </div>
           </div>
         </div>
-        <img id="carousel" src="assets/En-cours.png" alt="Carousel Image">
-        <img id="carousel" src="assets/En-cours.png" alt="Carousel Image">
-        <img id="carousel" src="assets/En-cours.png" alt="Carousel Image">
-        
+        <div class="carousel-item">
+          <img src="assets/piece (1).png" alt="Carousel Image" />
+        </div>
+        <div class="carousel-item">
+          <img src="assets/piece (2).png" alt="Carousel Image" />
+        </div>
+        <div class="carousel-item">
+          <img src="assets/piece (3).png" alt="Carousel Image" />
+        </div>
         <button id="right-btn"><i class="arrow"></i></button>
       </div>
 
@@ -115,24 +126,37 @@
         </div>
       </div>
 
-      <div class="certif">
-        <h1>du 26/02/24 au 01/03/24</h1>
-        <p>Formation de base</p>
-
-        <h1>08/06/24</h1>
-        <p>Manucure pro expert</p>
-
-        <h1>29/07/24</h1>
-        <p>Remplissage 45min</p>
-
-        <h1>03/08/24</h1>
-        <p>Formation soft gel</p>
-
-        <h1>10/08/24</h1>
-        <p>Formation popits créa</p>
-
-        <button class="btn">Nos prestations</button>
+      <div class="menu">
+        <div class="menu-wrapper">
+          <div class="menu-item">
+            <figure><img src="assets/diplome (1).jpg" alt="Diplome 1"></figure>
+            <h1>Formation de base</h1>
+            <p>du 26/02/24 au 01/03/24</p>
+          </div>
+          <div class="menu-item">
+            <figure><img src="assets/diplome (2).jpg" alt="Diplome 2"></figure>
+            <h1>Manucure pro expert</h1>
+            <p>08/06/24</p>
+          </div>
+          <div class="menu-item">
+            <figure><img src="assets/en-cours.png" alt="En cours"></figure>
+            <h1>Remplissage 45min</h1>
+            <p>29/07/24</p>
+          </div>
+          <div class="menu-item">
+            <figure><img src="assets/en-cours.png" alt="En cours"></figure>
+            <h1>Formation soft gel</h1>
+            <p>03/08/24</p>
+          </div>
+          <div class="menu-item">
+            <figure><img src="assets/en-cours.png" alt="En cours"></figure>
+            <h1>Formation popits créa</h1>
+            <p>10/08/24</p>
+          </div>
+        </div>
       </div>
+  
+      
 
       <div class="avis"></div>
 
@@ -198,6 +222,6 @@
       </div>
     </footer>
   </body>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="script.js" type="module"></script>
 </html>

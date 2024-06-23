@@ -313,18 +313,23 @@ body {
     width: 60vw;
   }
 }
-
-/* Test pres */
-
+/* Slider pres */
 .container {
   width: 100%;
+  height: 30vw;
   display: flex;
   justify-content: center;
-  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
-      0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  position: relative;
+  box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14), 
+              0 9px 46px 8px rgba(0, 0, 0, 0.12), 
+              0 11px 15px -7px rgba(0, 0, 0, 0.2);
 }
 
-button {
+ #left-btn, #right-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   height: 10%;
   border: none;
   outline: none;
@@ -332,45 +337,54 @@ button {
   cursor: pointer;
   padding: 1em;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
 button .arrow {
   border: solid #fff;
   border-width: 0 4px 4px 0;
   display: inline-block;
-  padding: 10px;
+  padding: 0.5vw;
   transition: transform 0.3s ease-out;
   outline: none;
 }
 
-.container img {
-  width: 100%;
-  z-index: -2;
-  display: none; 
-}
-
-.container img.active {
-  display: block; /* Display the active image */
-}
-
-
-#right-btn {
-  margin: auto 0 auto -4em;
-}
-
-#right-btn .arrow {
-  transform: rotate(-45deg);
-}
-
 #left-btn {
-  z-index: 0;
-  margin: auto -4em auto 0;
+  left: 10px;
 }
 
 #left-btn .arrow {
   transform: rotate(135deg);
 }
 
+#right-btn {
+  right: 10px;
+}
+
+#right-btn .arrow {
+  transform: rotate(-45deg);
+}
+
+.container .carousel-item {
+  width: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%; /* Assure que les items prennent toute la hauteur du conteneur */
+}
+
+.container .carousel-item.active {
+  display: block; /* Display the active item */
+}
+
+.container img {
+  width: 100%;
+  height: 100%; /* Assure que les images prennent toute la hauteur du conteneur */
+  object-fit: cover;
+}
 
 /* Présentation */
 .presentation {
@@ -380,6 +394,7 @@ button .arrow {
   background-color: var(--secondaryColor);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
+  height: 100%; /* Assure que la présentation prend toute la hauteur du conteneur */
   box-sizing: border-box;
 }
 
@@ -390,9 +405,10 @@ button .arrow {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%; /* Assure que la présentation prend toute la hauteur du conteneur */
 }
 
-.pres #photo-margot{
+.pres #photo-margot {
   z-index: 1;
   border-radius: 50%;
   width: 25vw;
@@ -412,6 +428,10 @@ button .arrow {
 }
 
 @media (max-width: 500px) {
+  .container{
+    height: 115vw;
+  }
+
   .presentation {
     display: flex;
     flex-direction: column;
@@ -419,12 +439,11 @@ button .arrow {
   }
 
   .pres {
-    padding: 6vw 30%;
+    padding: 6vw 40%;
     border-radius: 0% 0% 60% 0%;
   }
 
-  .pres img {
-    border-radius: 50%;
+  .pres #photo-margot {
     width: 45vw;
     height: 45vw;
   }
@@ -441,6 +460,8 @@ button .arrow {
     margin-bottom: 10px;
   }
 }
+
+
 
 /* Logo percutant */
 .logo {
@@ -481,22 +502,111 @@ button .arrow {
     padding: 1vw;
   }
 }
-
-/* Diplome */
-.certif {
-  padding: 5vw 1vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--tertiaryColor);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  box-sizing: border-box;
+/* Slider Diplome */
+/* Styles pour le conteneur principal .menu */
+.menu {
+  background-color: var(--secondaryColor); /* Couleur de fond du conteneur */
+  overflow: hidden; /* Cache tout contenu dépassant des dimensions spécifiées */
+  cursor: grab; /* Curseur de type "grab" lorsqu'on survole le conteneur */
+  width: 100%; /* Largeur du conteneur est de 100% de son parent */
+  height: 70vh; /* Hauteur du conteneur est de 70% de la hauteur de la fenêtre */
+  position: relative; /* Positionnement relatif pour le positionnement de ses enfants */
+  z-index: 1; /* Empilement au-dessus des autres éléments */
 }
 
-.certif p {
-  margin: 2vw;
+/* Styles lorsque le conteneur .menu est en cours de glissement (dragging) */
+.menu.is-dragging {
+  cursor: grabbing; /* Curseur de type "grabbing" lorsqu'en cours de glissement */
 }
+
+/* Styles pour le conteneur des éléments .menu-wrapper */
+.menu-wrapper {
+  display: flex; /* Utilisation de Flexbox pour les éléments enfants */
+  position: absolute; /* Positionnement absolu par rapport à son parent positionné */
+  height: 100%; /* Hauteur est de 100% de son conteneur */
+  width: 100%; /* Largeur est de 100% de son conteneur */
+  padding: 2vw; /* Espacement intérieur de 2% de la largeur de la fenêtre */
+  top: 0; /* Position en haut par rapport à son parent */
+  left: 0; /* Position à gauche par rapport à son parent */
+}
+
+/* Styles pour chaque élément individuel .menu-item */
+.menu-item {
+  position: relative; /* Positionnement relatif pour le positionnement de ses enfants */
+  width: 30vw; /* Largeur est de 30% de la largeur de la fenêtre */
+  height: 100%; /* Hauteur est de 100% de son conteneur */
+  padding: 0 1.5vw; /* Espacement intérieur de 0 en haut/bas et 1.5% de la largeur de la fenêtre à gauche/droite */
+  overflow: hidden; /* Cache tout contenu dépassant des dimensions spécifiées */
+  display: flex; /* Utilisation de Flexbox pour les éléments enfants */
+  flex-direction: column; /* Alignement en colonne des éléments enfants */
+  user-select: none; /* Empêche la sélection de texte à l'intérieur */
+}
+
+/* Media query pour les écrans plus petits */
+@media (max-width: 767px) {
+  .menu-item {
+    width: 40vw; /* Largeur est de 40% de la largeur de la fenêtre pour les écrans plus petits */
+    height: 40vw; /* Hauteur est de 40% de la largeur de la fenêtre pour les écrans plus petits */
+  }
+}
+
+/* Styles pour l'élément figure à l'intérieur de .menu-item */
+.menu-item figure {
+  position: relative; /* Positionnement relatif pour positionner l'élément figure */
+  z-index: 1; /* Empilement au-dessus des autres éléments de même niveau */
+  display: block; /* Affichage comme un bloc */
+  padding: 0; /* Aucun espacement intérieur */
+  border: none; /* Aucune bordure */
+  outline: none; /* Aucun contour */
+  box-shadow: none; /* Aucune ombre portée */
+  cursor: pointer; /* Curseur de type pointeur */
+  width: 100%; /* Largeur est de 100% de son conteneur .menu-item */
+  height: auto; /* Hauteur ajustée automatiquement selon l'image */
+  overflow: hidden; /* Cache tout contenu dépassant des dimensions spécifiées */
+  pointer-events: none; /* Désactive la prise en compte des événements de pointeur */
+  transform-origin: center; /* Origine de la transformation centrée */
+}
+
+/* Styles pour l'image à l'intérieur de .menu-item figure */
+.menu-item figure img {
+  width: 100%; /* Largeur est de 100% de son conteneur figure */
+  height: auto; /* Hauteur ajustée automatiquement selon l'image */
+  object-fit: cover; /* Ajuste la taille de l'image pour remplir l'espace disponible */
+  vertical-align: middle; /* Alignement vertical au milieu */
+  transform-origin: center; /* Origine de la transformation centrée */
+}
+
+/* Styles pour le pied de page .version */
+.version {
+  display: inline-block; /* Affichage en ligne */
+  position: fixed; /* Positionnement fixe par rapport à la fenêtre */
+  text-align: center; /* Centre le texte */
+  z-index: 1; /* Empilement au-dessus des autres éléments */
+  text-decoration: none; /* Aucune décoration de texte */
+  background: #333; /* Couleur de fond gris foncé */
+  font-family: sans-serif; /* Police sans-serif */
+  color: #fff; /* Couleur du texte blanc */
+  text-transform: uppercase; /* Texte en majuscules */
+  font-size: 12px; /* Taille de police de 12 pixels */
+  border-radius: 10px; /* Bordure arrondie */
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2); /* Ombre portée */
+  top: -30px; /* Position en haut par rapport à son parent */
+  right: -50px; /* Position à droite par rapport à son parent */
+  bottom: auto; /* Réinitialise toute valeur de 'bottom' définie précédemment */
+  transform: rotate(45deg); /* Rotation de 45 degrés */
+  transform-origin: 0% 100%; /* Origine de la transformation centrée sur le coin inférieur gauche */
+  padding: 8px 30px; /* Espacement intérieur */
+  font-size: 11px; /* Taille de police de 11 pixels */
+}
+
+/* Media query pour les écrans plus petits */
+@media (max-width: 767px) {
+  .version {
+    transform: scale(.6) rotate(45deg); /* Réduit l'échelle et la rotation pour les écrans plus petits */
+    right: -100px; /* Réajuste la position à droite pour les écrans plus petits */
+  }
+}
+
 
 /* Slider Avis */
 /* En cours */
