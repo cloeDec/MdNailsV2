@@ -250,7 +250,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2vw 5vw;
-  height: 100vh;
 }
 
 .intro .int {
@@ -625,7 +624,7 @@ iframe {
   background-color: var(--secondaryColor);
   color: var(--primaryColor);
   border: none;
-  padding: 1vw 2vw;
+  padding: 1vw 2.5vw;
   border-radius: 50px;
   font-family: var(--primaryFont);
   font-size: 1.6vw;
@@ -670,7 +669,8 @@ iframe {
   }
 
   .prestation .presta .presta-description .prix {
-    font-size: 1.8vw;
+    font-size: 2vw;
+    padding: 1vw 2.5vw;
   }
 }
 
@@ -703,11 +703,6 @@ iframe {
     font-size: 3vw;
   }
 }
-
-
-
-
-
 
 /* Page Nuanciers  */
 .image-nuanciers {
