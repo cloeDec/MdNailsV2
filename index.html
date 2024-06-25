@@ -126,37 +126,53 @@
         </div>
       </div>
 
-      <div class="menu">
-        <div class="menu-wrapper">
-          <div class="menu-item">
-            <figure><img src="assets/diplome (1).jpg" alt="Diplome 1"></figure>
+      <swiper-container
+        class="mySwiper"
+        slides-per-view="3"
+        centered-slides="false"
+        space-between="30"
+        pagination-type="none"
+        loop="true"
+        autoplay
+        autoplay-delay="3000"
+        autoplay-disable-on-interaction="false"
+      >
+        <swiper-slide>
+          <img src="assets/diplome (1).jpg" alt="Diplome 1" />
+          <div>
             <h1>Formation de base</h1>
             <p>du 26/02/24 au 01/03/24</p>
           </div>
-          <div class="menu-item">
-            <figure><img src="assets/diplome (2).jpg" alt="Diplome 2"></figure>
+        </swiper-slide>
+        <swiper-slide
+          ><img src="assets/diplome (2).jpg" alt="Diplome 2" />
+          <div>
             <h1>Manucure pro expert</h1>
-            <p>08/06/24</p>
-          </div>
-          <div class="menu-item">
-            <figure><img src="assets/en-cours.png" alt="En cours"></figure>
+            <p>le 08/06/24</p>
+          </div></swiper-slide
+        >
+        <swiper-slide>
+          <img src="assets/Cadre-vide - paysage.png" alt="En cours" />
+          <div>
             <h1>Remplissage 45min</h1>
-            <p>29/07/24</p>
+            <p>le 29/07/24</p>
           </div>
-          <div class="menu-item">
-            <figure><img src="assets/en-cours.png" alt="En cours"></figure>
+        </swiper-slide>
+        <swiper-slide>
+          <img src="assets/Cadre-vide.png" alt="En cours" />
+          <div>
             <h1>Formation soft gel</h1>
-            <p>03/08/24</p>
-          </div>
-          <div class="menu-item">
-            <figure><img src="assets/en-cours.png" alt="En cours"></figure>
+            <p>le 03/08/24</p>
+           </div>
+        </swiper-slide>
+        <swiper-slide>
+          <img src="assets/Cadre-vide - paysage.png" alt="En cours" />
+          <div>
             <h1>Formation popits créa</h1>
-            <p>10/08/24</p>
-          </div>
-        </div>
-      </div>
-  
-      
+            <p>le 10/08/24</p>
+           </div>
+        </swiper-slide>
+      </swiper-container>
 
       <div class="avis"></div>
 
@@ -222,6 +238,7 @@
       </div>
     </footer>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="script.js" type="module"></script>
 </html>

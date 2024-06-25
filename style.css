@@ -250,6 +250,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 2vw 5vw;
+  height: 100vh;
 }
 
 .intro .int {
@@ -503,110 +504,28 @@ button .arrow {
   }
 }
 /* Slider Diplome */
-/* Styles pour le conteneur principal .menu */
-.menu {
-  background-color: var(--secondaryColor); /* Couleur de fond du conteneur */
-  overflow: hidden; /* Cache tout contenu dépassant des dimensions spécifiées */
-  cursor: grab; /* Curseur de type "grab" lorsqu'on survole le conteneur */
-  width: 100%; /* Largeur du conteneur est de 100% de son parent */
-  height: 70vh; /* Hauteur du conteneur est de 70% de la hauteur de la fenêtre */
-  position: relative; /* Positionnement relatif pour le positionnement de ses enfants */
-  z-index: 1; /* Empilement au-dessus des autres éléments */
+swiper-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--fourthColor);
+  padding: 2vw;
+  margin: 2vw auto;
 }
 
-/* Styles lorsque le conteneur .menu est en cours de glissement (dragging) */
-.menu.is-dragging {
-  cursor: grabbing; /* Curseur de type "grabbing" lorsqu'en cours de glissement */
+swiper-slide {
+  text-align: center;
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Styles pour le conteneur des éléments .menu-wrapper */
-.menu-wrapper {
-  display: flex; /* Utilisation de Flexbox pour les éléments enfants */
-  position: absolute; /* Positionnement absolu par rapport à son parent positionné */
-  height: 100%; /* Hauteur est de 100% de son conteneur */
-  width: 100%; /* Largeur est de 100% de son conteneur */
-  padding: 2vw; /* Espacement intérieur de 2% de la largeur de la fenêtre */
-  top: 0; /* Position en haut par rapport à son parent */
-  left: 0; /* Position à gauche par rapport à son parent */
+swiper-slide img {
+  display: block;
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
 }
-
-/* Styles pour chaque élément individuel .menu-item */
-.menu-item {
-  position: relative; /* Positionnement relatif pour le positionnement de ses enfants */
-  width: 30vw; /* Largeur est de 30% de la largeur de la fenêtre */
-  height: 100%; /* Hauteur est de 100% de son conteneur */
-  padding: 0 1.5vw; /* Espacement intérieur de 0 en haut/bas et 1.5% de la largeur de la fenêtre à gauche/droite */
-  overflow: hidden; /* Cache tout contenu dépassant des dimensions spécifiées */
-  display: flex; /* Utilisation de Flexbox pour les éléments enfants */
-  flex-direction: column; /* Alignement en colonne des éléments enfants */
-  user-select: none; /* Empêche la sélection de texte à l'intérieur */
-}
-
-/* Media query pour les écrans plus petits */
-@media (max-width: 767px) {
-  .menu-item {
-    width: 40vw; /* Largeur est de 40% de la largeur de la fenêtre pour les écrans plus petits */
-    height: 40vw; /* Hauteur est de 40% de la largeur de la fenêtre pour les écrans plus petits */
-  }
-}
-
-/* Styles pour l'élément figure à l'intérieur de .menu-item */
-.menu-item figure {
-  position: relative; /* Positionnement relatif pour positionner l'élément figure */
-  z-index: 1; /* Empilement au-dessus des autres éléments de même niveau */
-  display: block; /* Affichage comme un bloc */
-  padding: 0; /* Aucun espacement intérieur */
-  border: none; /* Aucune bordure */
-  outline: none; /* Aucun contour */
-  box-shadow: none; /* Aucune ombre portée */
-  cursor: pointer; /* Curseur de type pointeur */
-  width: 100%; /* Largeur est de 100% de son conteneur .menu-item */
-  height: auto; /* Hauteur ajustée automatiquement selon l'image */
-  overflow: hidden; /* Cache tout contenu dépassant des dimensions spécifiées */
-  pointer-events: none; /* Désactive la prise en compte des événements de pointeur */
-  transform-origin: center; /* Origine de la transformation centrée */
-}
-
-/* Styles pour l'image à l'intérieur de .menu-item figure */
-.menu-item figure img {
-  width: 100%; /* Largeur est de 100% de son conteneur figure */
-  height: auto; /* Hauteur ajustée automatiquement selon l'image */
-  object-fit: cover; /* Ajuste la taille de l'image pour remplir l'espace disponible */
-  vertical-align: middle; /* Alignement vertical au milieu */
-  transform-origin: center; /* Origine de la transformation centrée */
-}
-
-/* Styles pour le pied de page .version */
-.version {
-  display: inline-block; /* Affichage en ligne */
-  position: fixed; /* Positionnement fixe par rapport à la fenêtre */
-  text-align: center; /* Centre le texte */
-  z-index: 1; /* Empilement au-dessus des autres éléments */
-  text-decoration: none; /* Aucune décoration de texte */
-  background: #333; /* Couleur de fond gris foncé */
-  font-family: sans-serif; /* Police sans-serif */
-  color: #fff; /* Couleur du texte blanc */
-  text-transform: uppercase; /* Texte en majuscules */
-  font-size: 12px; /* Taille de police de 12 pixels */
-  border-radius: 10px; /* Bordure arrondie */
-  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2); /* Ombre portée */
-  top: -30px; /* Position en haut par rapport à son parent */
-  right: -50px; /* Position à droite par rapport à son parent */
-  bottom: auto; /* Réinitialise toute valeur de 'bottom' définie précédemment */
-  transform: rotate(45deg); /* Rotation de 45 degrés */
-  transform-origin: 0% 100%; /* Origine de la transformation centrée sur le coin inférieur gauche */
-  padding: 8px 30px; /* Espacement intérieur */
-  font-size: 11px; /* Taille de police de 11 pixels */
-}
-
-/* Media query pour les écrans plus petits */
-@media (max-width: 767px) {
-  .version {
-    transform: scale(.6) rotate(45deg); /* Réduit l'échelle et la rotation pour les écrans plus petits */
-    right: -100px; /* Réajuste la position à droite pour les écrans plus petits */
-  }
-}
-
 
 /* Slider Avis */
 /* En cours */
@@ -686,11 +605,11 @@ iframe {
 }
 
 .prestation .presta:nth-child(odd) {
-  flex-direction: row;
+  flex-direction: row-reverse;
 }
 
 .prestation .presta:nth-child(even) {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .prestation .presta .presta-description {
@@ -698,7 +617,7 @@ iframe {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60%;
+  width: 100%;
   padding: 3vw;
 }
 
@@ -706,7 +625,7 @@ iframe {
   background-color: var(--secondaryColor);
   color: var(--primaryColor);
   border: none;
-  padding: 1.5vw 2vw;
+  padding: 1vw 2vw;
   border-radius: 50px;
   font-family: var(--primaryFont);
   font-size: 1.6vw;
@@ -721,52 +640,69 @@ iframe {
 
 @media (max-width: 1000px) {
   .prestation {
-    margin: 2vw;
-    text-align: center;
+    margin: 2vw -2vw;
+    text-align: center; 
   }
 
   .prestation .presta {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-bottom: 2vw;
+    display: flex; /* Utilise Flexbox pour la mise en page */
+    flex-direction: column; /* Dispose les éléments enfants en colonne */
+    margin-bottom: 2vw; /* Ajoute une marge en bas de 2vw */
   }
   
   .prestation .presta:nth-child(odd) img {
-    flex-direction: row;
-    border-radius: 60% 0% 0% 60%;
-    width: 35vw;
-    height: 35vw;
+    border-radius: 150px 0% 0% 150px; 
+    width: 50vw; 
+    height: 35vw; 
+    transform: translateX(-0vw);
   }
   
   .prestation .presta:nth-child(even) img {
-    flex-direction: row-reverse;
-    border-radius: 0% 60% 60% 0%;
-    width: 35vw;
-    height: 35vw;
+    border-radius: 0% 150px 150px 0%;
+    width: 50vw; 
+    height: 35vw; 
+    transform: translateX(0vw);
   }
   
   .prestation .presta .presta-description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 60%;
-    padding: 3vw;
+    width: 60%; 
+    padding: 3vw; 
   }
-  
-  .prestation .presta .presta-description .prix{
-    background-color: var(--secondaryColor);
-    color: var(--primaryColor);
-    border: none;
-    padding: 1.5vw 2vw;
-    border-radius: 50px;
-    font-family: var(--primaryFont);
-    font-size: 1.6vw;
-    margin-top: 2vw;
+
+  .prestation .presta .presta-description .prix {
+    font-size: 1.8vw;
   }
 }
 
+@media (max-width: 750px) {
+  .prestation .presta {
+    display: block; 
+    margin-bottom: 2vw; /* Ajoute une marge en bas de 2vw */
+    text-align: center;
+  }
+  
+  .prestation .presta:nth-child(odd) img {
+    width: 90%; 
+    height: 35vw; 
+    transform: translateX(10vw);
+  }
+  
+  .prestation .presta:nth-child(even) img {
+    width: 90%; 
+    height: 35vw; 
+    transform: translateX(-10vw);
+  }
+  
+  .prestation .presta .presta-description {
+    width: 90vw; 
+    margin: 0 auto; /* Centers the description block */
+    text-align: center; /* Centers the text within the description block */
+  }
+
+  .prestation .presta .presta-description .prix {
+    font-size: 3vw;
+  }
+}
 
 
 
@@ -774,42 +710,43 @@ iframe {
 
 
 /* Page Nuanciers  */
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  padding: 0 4px;
+.image-nuanciers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 20px;
 }
 
-/* Create four equal columns that sits next to each other */
-.column {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-  max-width: 25%;
-  padding: 0 4px;
-}
-
-.column img {
-  margin-top: 8px;
-  vertical-align: middle;
+.image-nuanciers img {
   width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-  .column {
-    -ms-flex: 50%;
-    flex: 50%;
-    max-width: 50%;
-  }
+.image-nuanciers img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
-    -ms-flex: 100%;
-    flex: 100%;
-    max-width: 100%;
-  }
+/* Page realisations  */
+.image-realisations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 20px;
+}
+
+.image-realisations img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.image-realisations img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
