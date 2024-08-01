@@ -31,13 +31,15 @@ body {
 
 /* NavBar */
 .navbar {
-  z-index: 1;
-  position: relative;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
   padding: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   height: 100px;
   box-sizing: border-box;
   font-family: var(--primaryFont);
@@ -106,7 +108,7 @@ body {
   background-color: var(--secondaryColor);
   color: var(--primaryColor);
   border: none;
-  padding: 1.5vw 2vw;
+  padding: 1.5vw 2.5vw;
   cursor: pointer;
   border-radius: 50px;
   font-family: var(--primaryFont);
@@ -132,7 +134,7 @@ body {
     left: 0;
     position: absolute;
     backdrop-filter: blur(3px);
-    background-color: rgba(255, 255, 255, 0.336);
+    background-color: rgba(255, 255, 255, 0.7);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -167,7 +169,7 @@ body {
     height: 80px;
   }
   .btn {
-    padding: 2.5vw 3vw;
+    padding: 1vw 2vw;
     font-size: 2.5vw;
     margin-top: 2vw;
   }
@@ -246,6 +248,7 @@ body {
 /* HomePage */
 /* Intro */
 .intro {
+  margin-top: 12vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -409,7 +412,7 @@ button .arrow {
 }
 
 .pres #photo-margot {
-  z-index: 1;
+  z-index: 0;
   border-radius: 50%;
   width: 25vw;
   height: 25vw;
@@ -462,7 +465,6 @@ button .arrow {
 }
 
 
-
 /* Logo percutant */
 .logo {
   display: flex;
@@ -504,6 +506,7 @@ button .arrow {
 }
 /* Slider Diplome */
 swiper-container {
+  z-index: 0;
   width: 100%;
   height: 100%;
   background-color: var(--fourthColor);
@@ -526,8 +529,29 @@ swiper-slide img {
   object-fit: cover;
 }
 
+@media (max-width: 500px) {
+  swiper-container {
+    padding: 2vw;
+    margin: 2vw auto;
+  }
+  
+  swiper-slide {
+    font-size: 2vw;
+  }
+  
+  swiper-slide img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 /* Slider Avis */
 /* En cours */
+
+#avis-google{
+  padding: 5vw;
+  background-color: var(--fourthColor);
+}
 
 /* Carte */
 .adresse {
@@ -745,3 +769,5 @@ iframe {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
