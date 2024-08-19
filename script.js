@@ -5,6 +5,18 @@ menuBurger.addEventListener('click', () => {
 navLinks.classList.toggle("mobile-menu");
 });
 
+window.addEventListener('scroll', function() {
+  var navbar = document.querySelector('.navbar');
+  var scrollPosition = window.scrollY;
+
+  if (scrollPosition > 0) { 
+    navbar.classList.add('fixed');
+  } else {
+    navbar.classList.remove('fixed');
+  }
+});
+
+
 // Carrousel presentation
 const images = document.querySelectorAll('.container .carousel-item');
 const rightBtn = document.getElementById('right-btn');

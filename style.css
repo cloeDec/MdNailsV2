@@ -30,9 +30,14 @@ body {
 }
 
 /* NavBar */
+
+.navbar.fixed {
+  position: fixed;
+}
+
 .navbar {
   z-index: 10;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   padding: 50px;
@@ -248,7 +253,6 @@ body {
 /* HomePage */
 /* Intro */
 .intro {
-  margin-top: 12vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -443,7 +447,8 @@ button .arrow {
 
   .pres {
     padding: 6vw 40%;
-    border-radius: 0% 0% 60% 0%;
+    width: 100vw;
+    border-radius: 0% 0% 60% 0%; 
   }
 
   .pres #photo-margot {
@@ -546,11 +551,18 @@ swiper-slide img {
 }
 
 /* Slider Avis */
-/* En cours */
 
 #avis-google{
   padding: 5vw;
   background-color: var(--fourthColor);
+}
+
+#avis-google .swiper-wrapper{
+margin: 2vw;
+}
+
+#avis-google .es-review-content-text{
+  width: 85%;
 }
 
 /* Carte */
@@ -731,7 +743,7 @@ iframe {
 /* Page Nuanciers  */
 .image-nuanciers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 10px;
   margin: 20px;
 }
