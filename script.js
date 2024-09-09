@@ -1,46 +1,45 @@
 const menuBurger = document.querySelector(".menu_burger");
 const navLinks = document.querySelector(".nav-links");
 
-menuBurger.addEventListener('click', () => {
-navLinks.classList.toggle("mobile-menu");
+menuBurger.addEventListener("click", () => {
+  navLinks.classList.toggle("mobile-menu");
 });
 
-window.addEventListener('scroll', function() {
-  var navbar = document.querySelector('.navbar');
+window.addEventListener("scroll", function () {
+  var navbar = document.querySelector(".navbar");
   var scrollPosition = window.scrollY;
 
-  if (scrollPosition > 0) { 
-    navbar.classList.add('fixed');
+  if (scrollPosition > 0) {
+    navbar.classList.add("fixed");
   } else {
-    navbar.classList.remove('fixed');
+    navbar.classList.remove("fixed");
   }
 });
 
-
 // Carrousel presentation
-const images = document.querySelectorAll('.container .carousel-item');
-const rightBtn = document.getElementById('right-btn');
-const leftBtn = document.getElementById('left-btn');
+const images = document.querySelectorAll(".container .carousel-item");
+const rightBtn = document.getElementById("right-btn");
+const leftBtn = document.getElementById("left-btn");
 
 let position = 0;
 
 const moveRight = () => {
-  images[position].classList.remove('active');
+  images[position].classList.remove("active");
   position = (position + 1) % images.length;
-  images[position].classList.add('active');
+  images[position].classList.add("active");
 };
 
 const moveLeft = () => {
-  images[position].classList.remove('active');
+  images[position].classList.remove("active");
   position = (position - 1 + images.length) % images.length;
-  images[position].classList.add('active');
+  images[position].classList.add("active");
 };
 
 rightBtn.addEventListener("click", moveRight);
 leftBtn.addEventListener("click", moveLeft);
 
 // Initially show the first image
-images[position].classList.add('active');
+images[position].classList.add("active");
 
 // Set up interval to change slides every 4 seconds
 const intervalTime = 6000;
@@ -62,8 +61,8 @@ leftBtn.addEventListener("click", () => {
 });
 
 // Slider diplome
-document.addEventListener('DOMContentLoaded', function () {
-  const swiperEl = document.querySelector('swiper-container');
+document.addEventListener("DOMContentLoaded", function () {
+  const swiperEl = document.querySelector("swiper-container");
   const swiper = new Swiper(swiperEl, {
     loop: true,
     autoplay: {
@@ -77,29 +76,38 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var appendNumber = 4;
   var prependNumber = 1;
-  document.querySelector(".prepend-2-slides").addEventListener("click", function (e) {
-    e.preventDefault();
-    swiper.prependSlide([
-      '<swiper-slide>Slide ' + --prependNumber + "</swiper-slide>",
-      '<swiper-slide>Slide ' + --prependNumber + "</swiper-slide>",
-    ]);
-  });
-  document.querySelector(".prepend-slide").addEventListener("click", function (e) {
-    e.preventDefault();
-    swiper.prependSlide('<swiper-slide>Slide ' + --prependNumber + "</swiper-slide>");
-  });
-  document.querySelector(".append-slide").addEventListener("click", function (e) {
-    e.preventDefault();
-    swiper.appendSlide('<swiper-slide>Slide ' + ++appendNumber + "</swiper-slide>");
-  });
-  document.querySelector(".append-2-slides").addEventListener("click", function (e) {
-    e.preventDefault();
-    swiper.appendSlide([
-      '<swiper-slide>Slide ' + ++appendNumber + "</swiper-slide>",
-      '<swiper-slide>Slide ' + ++appendNumber + "</swiper-slide>",
-    ]);
-  });
+  document
+    .querySelector(".prepend-2-slides")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.prependSlide([
+        "<swiper-slide>Slide " + --prependNumber + "</swiper-slide>",
+        "<swiper-slide>Slide " + --prependNumber + "</swiper-slide>",
+      ]);
+    });
+  document
+    .querySelector(".prepend-slide")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.prependSlide(
+        "<swiper-slide>Slide " + --prependNumber + "</swiper-slide>"
+      );
+    });
+  document
+    .querySelector(".append-slide")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.appendSlide(
+        "<swiper-slide>Slide " + ++appendNumber + "</swiper-slide>"
+      );
+    });
+  document
+    .querySelector(".append-2-slides")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      swiper.appendSlide([
+        "<swiper-slide>Slide " + ++appendNumber + "</swiper-slide>",
+        "<swiper-slide>Slide " + ++appendNumber + "</swiper-slide>",
+      ]);
+    });
 });
-
-
- 
