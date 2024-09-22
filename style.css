@@ -555,7 +555,6 @@ swiper-slide img {
     width: 100%;
     height: 100%;
   }
-  
 }
 
 /* Slider Avis */
@@ -572,7 +571,6 @@ swiper-slide img {
 #avis-google .es-review-content-text {
   width: 85%;
 }
-
 
 /* Carte */
 .adresse {
@@ -727,15 +725,15 @@ iframe {
   }
 
   .prestation .presta:nth-child(odd) img {
-    width: 90%;
+    width: 60%;
     height: 35vw;
-    transform: translateX(10vw);
+    transform: translateX(20vw);
   }
 
   .prestation .presta:nth-child(even) img {
-    width: 90%;
+    width: 60%;
     height: 35vw;
-    transform: translateX(-10vw);
+    transform: translateX(-20vw);
   }
 
   .prestation .presta .presta-description {
